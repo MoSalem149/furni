@@ -7,26 +7,21 @@ export default function Hero() {
     <Box
       sx={{
         backgroundColor: "#3b5d50",
-        minHeight: { xs: "auto", md: "480px" },
-        display: "flex",
-        alignItems: "center",
+        py: { xs: 6, md: 10 },
         overflow: "hidden",
         position: "relative",
-        py: { xs: 6, md: 0 },
       }}
     >
       {/* Dots decoration */}
       <Box
         component="img"
         src={dotsLight}
-        alt=""
         sx={{
           position: "absolute",
-          top: 44,
-          right: 124,
-          opacity: 0.6,
-          width: 240,
-          pointerEvents: "none",
+          top: 20,
+          left: 20,
+          width: { xs: 60, md: 80 },
+          opacity: 0.5,
         }}
       />
 
@@ -34,44 +29,46 @@ export default function Hero() {
         <Box
           sx={{
             display: "flex",
+            flexDirection: { xs: "column", md: "row" },
             alignItems: "center",
-            justifyContent: "space-between",
-            gap: 4,
+            gap: { xs: 4, md: 8 },
+            textAlign: { xs: "center", md: "left" },
           }}
         >
           {/* Left Text */}
-          <Box sx={{ flex: "0 0 auto", maxWidth: 520 }}>
+          <Box sx={{ flex: 1 }}>
             <Typography
               sx={{
-                color: "#fff",
                 fontWeight: 800,
                 fontSize: { xs: "2rem", md: "3rem" },
-                lineHeight: 1.15,
-                mb: 2.5,
+                color: "#fff",
+                lineHeight: 1.2,
                 fontFamily: "Inter",
-                letterSpacing: "-0.5px",
+                mb: 2,
               }}
             >
-              Modern Interior
-              <br />
-              Design Studio
+              Modern Interior <br /> Design Studio
             </Typography>
-
             <Typography
               sx={{
-                color: "rgba(255,255,255,0.65)",
+                color: "rgba(255,255,255,0.8)",
                 mb: 4,
-                maxWidth: 460,
-                lineHeight: 1.75,
                 fontFamily: "Inter",
-                fontSize: "0.9rem",
+                fontSize: { xs: "0.9rem", md: "1rem" },
               }}
             >
               Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet
               velit. Aliquam vulputate velit imperdiet dolor tempor tristique.
             </Typography>
 
-            <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
+            <Box
+              sx={{
+                display: "flex",
+                gap: 2,
+                justifyContent: { xs: "center", md: "flex-start" },
+                flexWrap: "wrap",
+              }}
+            >
               {/* Shop Now */}
               <Button
                 variant="contained"
@@ -120,27 +117,15 @@ export default function Hero() {
           </Box>
 
           {/* Right Image */}
-          <Box
-            sx={{
-              flex: 1,
-              display: { xs: "none", md: "flex" },
-              justifyContent: "flex-end",
-              alignItems: "flex-end",
-              alignSelf: "stretch",
-              overflow: "hidden",
-            }}
-          >
+          <Box sx={{ flex: 1, display: "flex", justifyContent: "center" }}>
             <Box
               component="img"
               src={couchImg}
-              alt="Modern couch"
+              alt="Couch"
               sx={{
-                width: "100%",
-                maxWidth: 620,
+                width: { xs: "85%", md: "100%" },
+                maxWidth: 500,
                 objectFit: "contain",
-                objectPosition: "bottom right",
-                filter: "drop-shadow(0 24px 32px rgba(0,0,0,0.25))",
-                mb: "-4px",
               }}
             />
           </Box>
