@@ -31,10 +31,10 @@ const features = [
 
 export default function WhyChooseUs() {
   return (
-    <Box sx={{ py: 12, backgroundColor: "#eff2f1" }}>
+    <Box sx={{ py: { xs: 5, md: 12 } }}>
       <Container
         maxWidth="lg"
-        sx={{ px: { xs: 2, sm: 4, md: 6 }, py: { xs: 7, md: 10 } }}
+        sx={{ px: { xs: 2, sm: 4, md: 6 }, py: { xs: 3, md: 10 } }}
       >
         <Box
           sx={{
@@ -69,7 +69,7 @@ export default function WhyChooseUs() {
             <Box
               sx={{
                 display: "grid",
-                gridTemplateColumns: "1fr 1fr",
+                gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" },
                 gap: "36px 32px",
               }}
             >
@@ -139,8 +139,8 @@ export default function WhyChooseUs() {
               alt=""
               sx={{
                 position: "absolute",
-                top: -80,
-                left: -80,
+                top: { xs: -20, md: -26 },
+                left: { xs: -20, md: -80 },
                 width: { xs: 130, md: 200 },
                 opacity: 0.9,
                 zIndex: 0,

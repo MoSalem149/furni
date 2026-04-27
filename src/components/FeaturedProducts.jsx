@@ -47,7 +47,7 @@ function ProductCard({ product }) {
           display: "flex",
           justifyContent: "center",
           alignItems: "flex-end",
-          height: 280,
+          height: { xs: 200, sm: 280 },
           mb: 0,
         }}
       >
@@ -57,7 +57,7 @@ function ProductCard({ product }) {
           alt={product.name}
           className="product-img"
           sx={{
-            maxHeight: 260,
+            maxHeight: { xs: 180, sm: 260 },
             width: "100%",
             objectFit: "contain",
             transition: "transform 0.3s ease",
@@ -135,7 +135,7 @@ function ProductCard({ product }) {
 
 export default function FeaturedProducts() {
   return (
-    <Box sx={{ py: 10, backgroundColor: "#eff2f1" }}>
+    <Box sx={{ py: { xs: 5, md: 10 } }}>
       <Container
         maxWidth="lg"
         sx={{ px: { xs: 2, sm: 4, md: 6 }, py: { xs: 7, md: 10 } }}
@@ -151,6 +151,7 @@ export default function FeaturedProducts() {
           <Grid
             item
             sx={{
+              width: { xs: "100%", md: "auto" },
               minWidth: { md: 280 },
               maxWidth: { md: 300 },
               flexShrink: 0,

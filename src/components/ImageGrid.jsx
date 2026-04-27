@@ -34,16 +34,10 @@ const productItems = [
 
 export default function ImageGrid() {
   return (
-    <Box
-      sx={{
-        p: { xs: 7, md: 10 },
-        backgroundColor: "#eff2f1",
-        overflow: "hidden",
-      }}
-    >
+    <Box sx={{ p: { xs: 2, md: 10 }, overflow: "hidden" }}>
       <Container
         maxWidth="xl"
-        sx={{ px: { xs: 2, sm: 4, md: 6 }, py: { xs: 7, md: 10 } }}
+        sx={{ px: { xs: 2, sm: 4, md: 6 }, py: { xs: 3, md: 10 } }}
       >
         <Box
           sx={{
@@ -67,8 +61,8 @@ export default function ImageGrid() {
                 position: "relative",
                 width: "100%",
                 maxWidth: 860,
-                height: { xs: 430, sm: 520, md: 650, lg: 700 },
-                minHeight: { xs: 430, sm: 520, md: 650 },
+                height: { xs: 320, sm: 520, md: 650, lg: 700 },
+                minHeight: { xs: 320, sm: 520, md: 650 },
               }}
             >
               <Box
@@ -94,7 +88,7 @@ export default function ImageGrid() {
                   top: 42,
                   left: 10,
                   width: { xs: "68%", sm: "64%", md: "62%" },
-                  height: { xs: 300, sm: 390, md: 540 },
+                  height: { xs: 220, sm: 390, md: 540 },
                   objectFit: "cover",
                   borderRadius: "24px",
                   zIndex: 1,
@@ -111,7 +105,7 @@ export default function ImageGrid() {
                   top: 42,
                   right: { xs: 0, md: 36 },
                   width: { xs: "31%", sm: "29%", md: "28%" },
-                  height: { xs: 120, sm: 155, md: 205 },
+                  height: { xs: 90, sm: 155, md: 205 },
                   objectFit: "cover",
                   borderRadius: "20px",
                   zIndex: 2,
@@ -125,10 +119,10 @@ export default function ImageGrid() {
                 alt="Minimal wooden stool"
                 sx={{
                   position: "absolute",
-                  top: { xs: 180, sm: 235, md: 235 },
+                  top: { xs: 140, sm: 235, md: 235 },
                   left: { xs: "43%", sm: "42%", md: "41%" },
                   width: { xs: "44%", sm: "43%", md: "42%" },
-                  height: { xs: 230, sm: 290, md: 430 },
+                  height: { xs: 170, sm: 290, md: 430 },
                   objectFit: "cover",
                   borderRadius: "22px",
                   zIndex: 3,
@@ -264,6 +258,8 @@ export default function ImageGrid() {
                 display: "flex",
                 alignItems: "flex-start",
                 gap: 2.5,
+                maxWidth: { xs: 400, md: "100%" },
+                mx: { xs: "auto", md: 0 },
               }}
             >
               <Box
