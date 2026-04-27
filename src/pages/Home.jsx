@@ -1,6 +1,7 @@
 import Hero from "../components/Hero";
 import FeaturedProducts from "../components/FeaturedProducts";
 import WhyChooseUs from "../components/WhyChooseUs";
+import ImageGrid from "../components/ImageGrid";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <Hero />
       <FeaturedProducts />
       <WhyChooseUs />
+      <ImageGrid />
     </>
   );
 }
