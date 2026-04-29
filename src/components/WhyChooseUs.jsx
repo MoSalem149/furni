@@ -1,35 +1,9 @@
 import { Box, Container, Typography } from "@mui/material";
 import whyImg from "../assets/images/why-choose-us-img.jpg";
 import dotsYellow from "../assets/icons/dots-yellow.svg";
-import truckIcon from "../assets/icons/truck.svg";
-import bagIcon from "../assets/icons/bag.svg";
-import supportIcon from "../assets/icons/support.svg";
-import returnIcon from "../assets/icons/return.svg";
+import { benefits } from "../data/benefits";
 
-const features = [
-  {
-    icon: truckIcon,
-    title: "Fast & Free Shipping",
-    desc: "Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.",
-  },
-  {
-    icon: bagIcon,
-    title: "Easy to Shop",
-    desc: "Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.",
-  },
-  {
-    icon: supportIcon,
-    title: "24/7 Support",
-    desc: "Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.",
-  },
-  {
-    icon: returnIcon,
-    title: "Hassle Free Returns",
-    desc: "Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.",
-  },
-];
-
-export default function WhyChooseUs() {
+export default function WhyChooseUs({ rightSide = true, headerText = true }) {
   return (
     <Box sx={{ py: { xs: 5, md: 12 } }}>
       <Container
@@ -44,28 +18,38 @@ export default function WhyChooseUs() {
             gap: { xs: 6, md: 8 },
           }}
         >
-          {/* LEFT SIDE */}
+          {/* Benefits content */}
           <Box sx={{ flex: 1, minWidth: 0 }}>
-            <Typography
-              sx={{ fontWeight: 700, fontSize: "2.2rem", mb: 2, color: "#222" }}
-            >
-              Why Choose Us
-            </Typography>
+            {headerText && (
+              <>
+                <Typography
+                  sx={{
+                    fontWeight: 700,
+                    fontSize: "2.2rem",
+                    mb: 2,
+                    color: "#222",
+                  }}
+                >
+                  Why Choose Us
+                </Typography>
 
-            <Typography
-              sx={{
-                color: "#777",
-                mb: 5,
-                lineHeight: 1.8,
-                fontSize: "0.9rem",
-                maxWidth: 420,
-              }}
-            >
-              Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet
-              velit. Aliquam vulputate velit imperdiet dolor tempor tristique.
-            </Typography>
+                <Typography
+                  sx={{
+                    color: "#777",
+                    mb: 5,
+                    lineHeight: 1.8,
+                    fontSize: "0.9rem",
+                    maxWidth: 420,
+                  }}
+                >
+                  Donec vitae odio quis nisl dapibus malesuada. Nullam ac
+                  aliquet velit. Aliquam vulputate velit imperdiet dolor tempor
+                  tristique.
+                </Typography>
+              </>
+            )}
 
-            {/* features grid */}
+            {/* Benefits grid */}
             <Box
               sx={{
                 display: "grid",
@@ -73,9 +57,9 @@ export default function WhyChooseUs() {
                 gap: "36px 32px",
               }}
             >
-              {features.map((f) => (
+              {benefits.map((f) => (
                 <Box key={f.title}>
-                  {/* Icon */}
+                  {/* Benefit icon */}
                   <Box
                     sx={{
                       position: "relative",
@@ -130,45 +114,49 @@ export default function WhyChooseUs() {
             </Box>
           </Box>
 
-          {/* RIGHT SIDE */}
-          <Box sx={{ flex: 1, minWidth: 0, position: "relative" }}>
-            {/* Yellow dots decoration */}
-            <Box
-              component="img"
-              src={dotsYellow}
-              alt=""
-              sx={{
-                position: "absolute",
-                top: { xs: -20, md: -26 },
-                left: { xs: -20, md: -80 },
-                width: { xs: 130, md: 200 },
-                opacity: 0.9,
-                zIndex: 0,
-                pointerEvents: "none",
-              }}
-            />
+          {/* Feature image */}
+          {rightSide && (
+            <Box sx={{ flex: 1, minWidth: 0, position: "relative" }}>
+              {/* Decorative dots */}
+              <Box
+                component="img"
+                src={dotsYellow}
+                alt=""
+                sx={{
+                  position: "absolute",
+                  top: { xs: -20, md: -26 },
+                  left: { xs: -20, md: -80 },
+                  width: { xs: 130, md: 200 },
+                  opacity: 0.9,
+                  zIndex: 0,
+                  pointerEvents: "none",
+                }}
+              />
 
-            {/* Main photo */}
-            <Box
-              component="img"
-              src={whyImg}
-              alt="Why choose us"
-              sx={{
-                width: "100%",
-                borderRadius: "22px",
-                position: "relative",
-                zIndex: 1,
-                display: "block",
-                boxShadow:
-                  "0 28px 48px -16px rgba(0,0,0,0.2), 0 2px 4px rgba(0,0,0,0.02)",
-                transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                "&:hover": {
-                  transform: "translateY(-4px)",
-                  boxShadow: "0 32px 56px -12px rgba(0,0,0,0.25)",
-                },
-              }}
-            />
-          </Box>
+              {/* Main image */}
+              <Box
+                component="img"
+                src={whyImg}
+                alt="Why choose us"
+                sx={{
+                  width: { xs: "100%", sm: "80%", md: "100%" },
+                  maxWidth: { xs: "100%", sm: 500, md: "100%" },
+                  mx: "auto",
+                  display: "block",
+                  borderRadius: "22px",
+                  position: "relative",
+                  zIndex: 1,
+                  boxShadow:
+                    "0 28px 48px -16px rgba(0,0,0,0.2), 0 2px 4px rgba(0,0,0,0.02)",
+                  transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                  "&:hover": {
+                    transform: "translateY(-4px)",
+                    boxShadow: "0 32px 56px -12px rgba(0,0,0,0.25)",
+                  },
+                }}
+              />
+            </Box>
+          )}
         </Box>
       </Container>
     </Box>

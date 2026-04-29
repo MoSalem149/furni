@@ -1,8 +1,15 @@
 import { Box, Container, Typography, Button } from "@mui/material";
 import couchImg from "../assets/images/couch.png";
 import dotsLight from "../assets/icons/dots-light.svg";
+import { Link } from "react-router";
 
-export default function Hero() {
+export default function Hero({
+  title,
+  description,
+  showButtons = true,
+  showImage = true,
+  showDot = true,
+}) {
   return (
     <Box
       sx={{
@@ -12,18 +19,22 @@ export default function Hero() {
         position: "relative",
       }}
     >
-      {/* Dots decoration */}
-      <Box
-        component="img"
-        src={dotsLight}
-        sx={{
-          position: "absolute",
-          top: 20,
-          left: 20,
-          width: { xs: 60, md: 80 },
-          opacity: 0.5,
-        }}
-      />
+      {/* Background dots */}
+      {showDot && (
+        <Box
+          component="img"
+          src={dotsLight}
+          sx={{
+            position: "absolute",
+            top: 44,
+            right: 124,
+            width: { xs: 60, md: 240 },
+            opacity: 0.5,
+            pointerEvents: "none",
+            zIndex: 0,
+          }}
+        />
+      )}
 
       <Container maxWidth="lg">
         <Box
@@ -35,7 +46,7 @@ export default function Hero() {
             textAlign: { xs: "center", md: "left" },
           }}
         >
-          {/* Left Text */}
+          {/* Hero text */}
           <Box sx={{ flex: 1 }}>
             <Typography
               sx={{
@@ -43,92 +54,99 @@ export default function Hero() {
                 fontSize: { xs: "2rem", md: "3rem" },
                 color: "#fff",
                 lineHeight: 1.2,
-                fontFamily: "Inter",
                 mb: 2,
               }}
             >
-              Modern Interior <br /> Design Studio
+              {title}
             </Typography>
             <Typography
               sx={{
                 color: "rgba(255,255,255,0.8)",
                 mb: 4,
-                fontFamily: "Inter",
                 fontSize: { xs: "0.9rem", md: "1rem" },
               }}
             >
-              Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet
-              velit. Aliquam vulputate velit imperdiet dolor tempor tristique.
+              {description}
             </Typography>
 
+            {showButtons && (
+              <Box
+                sx={{
+                  display: "flex",
+                  gap: 2,
+                  justifyContent: { xs: "center", md: "flex-start" },
+                  flexWrap: "wrap",
+                }}
+              >
+                {/* Primary action */}
+                <Link to="/shop">
+                  <Button
+                    variant="contained"
+                    disableElevation
+                    sx={{
+                      backgroundColor: "#F0A500",
+                      fontWeight: 700,
+                      borderRadius: "999px",
+                      px: 3.5,
+                      py: 1.2,
+                      fontSize: "0.9rem",
+                      textTransform: "none",
+                      "&:hover": { backgroundColor: "#d4920a" },
+                    }}
+                  >
+                    Shop Now
+                  </Button>
+                </Link>
+
+                {/* Secondary action */}
+                <Button
+                  variant="outlined"
+                  disableElevation
+                  sx={{
+                    borderColor: "rgba(255,255,255,0.55)",
+                    borderWidth: "1.5px",
+                    color: "#fff",
+                    fontWeight: 600,
+                    borderRadius: "999px",
+                    px: 3.5,
+                    py: 1.15,
+                    fontSize: "0.9rem",
+                    textTransform: "none",
+                    "&:hover": {
+                      borderColor: "#fff",
+                      borderWidth: "1.5px",
+                      backgroundColor: "rgba(255,255,255,0.08)",
+                    },
+                  }}
+                >
+                  Explore
+                </Button>
+              </Box>
+            )}
+          </Box>
+
+          {/* Hero image */}
+          {showImage && (
             <Box
               sx={{
+                flex: 1,
                 display: "flex",
-                gap: 2,
-                justifyContent: { xs: "center", md: "flex-start" },
-                flexWrap: "wrap",
+                justifyContent: "center",
+                zIndex: 1,
               }}
             >
-              {/* Shop Now */}
-              <Button
-                variant="contained"
-                disableElevation
+              <Box
+                component="img"
+                src={couchImg}
+                alt="Couch"
                 sx={{
-                  backgroundColor: "#F0A500",
-                  color: "#1a1a1a",
-                  fontWeight: 700,
-                  borderRadius: "999px",
-                  px: 3.5,
-                  py: 1.2,
-                  fontSize: "0.9rem",
-                  textTransform: "none",
-                  fontFamily: "Inter",
-                  "&:hover": { backgroundColor: "#d4920a" },
+                  width: { xs: "85%", md: "100%" },
+                  maxWidth: 500,
+                  objectFit: "contain",
                 }}
-              >
-                Shop Now
-              </Button>
-
-              {/* Explore */}
-              <Button
-                variant="outlined"
-                disableElevation
-                sx={{
-                  borderColor: "rgba(255,255,255,0.55)",
-                  borderWidth: "1.5px",
-                  color: "#fff",
-                  fontWeight: 600,
-                  borderRadius: "999px",
-                  px: 3.5,
-                  py: 1.15,
-                  fontSize: "0.9rem",
-                  textTransform: "none",
-                  fontFamily: "Inter",
-                  "&:hover": {
-                    borderColor: "#fff",
-                    borderWidth: "1.5px",
-                    backgroundColor: "rgba(255,255,255,0.08)",
-                  },
-                }}
-              >
-                Explore
-              </Button>
+              />
             </Box>
-          </Box>
-
-          {/* Right Image */}
-          <Box sx={{ flex: 1, display: "flex", justifyContent: "center" }}>
-            <Box
-              component="img"
-              src={couchImg}
-              alt="Couch"
-              sx={{
-                width: { xs: "85%", md: "100%" },
-                maxWidth: 500,
-                objectFit: "contain",
-              }}
-            />
-          </Box>
+          )}
         </Box>
       </Container>
     </Box>

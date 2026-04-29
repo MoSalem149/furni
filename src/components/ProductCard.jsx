@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 
-export default function ProductCard({ product }) {
+export default function ProductCard({ product, onAdd }) {
   return (
     <Box
       sx={{
@@ -13,7 +13,7 @@ export default function ProductCard({ product }) {
         "&:hover .product-img": { transform: "translateY(-12px)" },
       }}
     >
-      {/* Card background */}
+      {/* Hover background */}
       <Box
         className="card-bg"
         sx={{
@@ -30,7 +30,7 @@ export default function ProductCard({ product }) {
         }}
       />
 
-      {/* Product Image */}
+      {/* Product image */}
       <Box
         sx={{
           position: "relative",
@@ -57,7 +57,7 @@ export default function ProductCard({ product }) {
         />
       </Box>
 
-      {/* Add to Cart button */}
+      {/* Add to cart action */}
       <Box
         className="add-btn"
         sx={{
@@ -73,6 +73,10 @@ export default function ProductCard({ product }) {
         }}
       >
         <Box
+          onClick={(e) => {
+            e.stopPropagation();
+            onAdd?.(product);
+          }}
           sx={{
             width: 40,
             height: 40,
@@ -92,13 +96,11 @@ export default function ProductCard({ product }) {
         </Box>
       </Box>
 
-      {/* Product Name */}
+      {/* Product name */}
       <Typography
         sx={{
           fontWeight: 600,
           fontSize: "0.95rem",
-          fontFamily: "Inter",
-          color: "#1a1a1a",
           mb: 0.5,
           position: "relative",
           zIndex: 1,
@@ -107,13 +109,11 @@ export default function ProductCard({ product }) {
         {product.name}
       </Typography>
 
-      {/* Price */}
+      {/* Product price */}
       <Typography
         sx={{
           fontWeight: 800,
           fontSize: "1.1rem",
-          fontFamily: "Inter",
-          color: "#1a1a1a",
           position: "relative",
           zIndex: 1,
         }}

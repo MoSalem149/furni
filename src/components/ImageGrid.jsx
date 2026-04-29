@@ -3,34 +3,8 @@ import img1 from "../assets/images/img-grid-1.jpg";
 import img2 from "../assets/images/img-grid-2.jpg";
 import img3 from "../assets/images/img-grid-3.jpg";
 import dotsGreen from "../assets/icons/dots-green.svg";
-import product1 from "../assets/images/product-1.png";
-import product2 from "../assets/images/product-2.png";
-import product3 from "../assets/images/product-3.png";
-
-const features = [
-  "Donec vitae odio quis nisl dapibus malesuada",
-  "Donec vitae odio quis nisl dapibus malesuada",
-  "Donec vitae odio quis nisl dapibus malesuada",
-  "Donec vitae odio quis nisl dapibus malesuada",
-];
-
-const productItems = [
-  {
-    image: product1,
-    title: "Nordic Chair",
-    desc: "Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio",
-  },
-  {
-    image: product2,
-    title: "Kruzo Aero Chair",
-    desc: "Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio",
-  },
-  {
-    image: product3,
-    title: "Ergonomic Chair",
-    desc: "Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio",
-  },
-];
+import { features } from "../data/features.js";
+import { productItems } from "../data/productItems.js";
 
 export default function ImageGrid() {
   return (
@@ -48,7 +22,7 @@ export default function ImageGrid() {
             gap: { xs: 6, md: 0.5, lg: 1 },
           }}
         >
-          {/* Left collage */}
+          {/* Image collage */}
           <Box
             sx={{
               width: { xs: "100%", md: "52%" },
@@ -133,7 +107,7 @@ export default function ImageGrid() {
             </Box>
           </Box>
 
-          {/* Right content */}
+          {/* Content block */}
           <Box
             sx={{
               width: { xs: "100%", md: "42%" },
@@ -144,7 +118,6 @@ export default function ImageGrid() {
           >
             <Typography
               sx={{
-                fontFamily: "Inter, sans-serif",
                 fontWeight: 700,
                 fontSize: { xs: "2.1rem", sm: "2.5rem", md: "3rem" },
                 lineHeight: 1.12,
@@ -159,7 +132,6 @@ export default function ImageGrid() {
 
             <Typography
               sx={{
-                fontFamily: "Inter, sans-serif",
                 fontSize: { xs: "0.94rem", md: "0.9rem" },
                 lineHeight: 2,
                 color: "#6c757d",
@@ -197,7 +169,6 @@ export default function ImageGrid() {
                     color: "#6c757d",
                     fontSize: { xs: "0.92rem", md: "0.88rem" },
                     lineHeight: 1.75,
-                    fontFamily: "Inter, sans-serif",
                   }}
                 >
                   <Box
@@ -227,7 +198,6 @@ export default function ImageGrid() {
                 textTransform: "none",
                 fontWeight: 700,
                 fontSize: "0.95rem",
-                fontFamily: "Inter",
                 boxShadow: "none",
                 "&:hover": {
                   backgroundColor: "#1f1f1f",
@@ -240,7 +210,7 @@ export default function ImageGrid() {
           </Box>
         </Box>
 
-        {/* Product list under section */}
+        {/* Supporting products */}
         <Box
           sx={{
             mt: { xs: 8, md: 10 },
@@ -289,7 +259,6 @@ export default function ImageGrid() {
               <Box sx={{ pt: 0.5 }}>
                 <Typography
                   sx={{
-                    fontFamily: "Inter, sans-serif",
                     fontWeight: 700,
                     fontSize: { xs: "0.95rem", md: "0.98rem" },
                     color: "#2f2f2f",
@@ -301,7 +270,6 @@ export default function ImageGrid() {
 
                 <Typography
                   sx={{
-                    fontFamily: "Inter, sans-serif",
                     fontSize: { xs: "0.84rem", md: "0.86rem" },
                     lineHeight: 1.65,
                     color: "#6c757d",
@@ -316,7 +284,6 @@ export default function ImageGrid() {
                   component="a"
                   href="#"
                   sx={{
-                    fontFamily: "Inter, sans-serif",
                     fontSize: { xs: "0.88rem", md: "0.9rem" },
                     color: "#2f2f2f",
                     textDecoration: "none",
