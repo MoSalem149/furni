@@ -1,0 +1,123 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "name": "Nordic Chair",
+            "price": "$50.00",
+            "image": "http://localhost:3000/images/product-1.png",
+            "category": "Chairs"
+        },
+        {
+            "id": 2,
+            "name": "Kruzo Aero Chair",
+            "price": "$78.00",
+            "image": "http://localhost:3000/images/product-2.png",
+            "category": "Chairs"
+        },
+        {
+            "id": 3,
+            "name": "Ergonomic Chair",
+            "price": "$43.00",
+            "image": "http://localhost:3000/images/product-3.png",
+            "category": "Chairs"
+        },
+        {
+            "id": 4,
+            "name": "Nordic Chair II",
+            "price": "$55.00",
+            "image": "http://localhost:3000/images/product-1.png",
+            "category": "Chairs"
+        },
+        {
+            "id": 5,
+            "name": "Aero Pro Chair",
+            "price": "$92.00",
+            "image": "http://localhost:3000/images/product-2.png",
+            "category": "Chairs"
+        },
+        {
+            "id": 6,
+            "name": "Comfort Chair",
+            "price": "$67.00",
+            "image": "http://localhost:3000/images/product-3.png",
+            "category": "Chairs"
+        },
+        {
+            "id": 7,
+            "name": "Lounge Sofa",
+            "price": "$320.00",
+            "image": "http://localhost:3000/images/product-1.png",
+            "category": "Sofas"
+        },
+        {
+            "id": 8,
+            "name": "Modern Sofa",
+            "price": "$450.00",
+            "image": "http://localhost:3000/images/product-2.png",
+            "category": "Sofas"
+        },
+        {
+            "id": 9,
+            "name": "Corner Sofa",
+            "price": "$580.00",
+            "image": "http://localhost:3000/images/product-3.png",
+            "category": "Sofas"
+        },
+        {
+            "id": 10,
+            "name": "Studio Sofa",
+            "price": "$280.00",
+            "image": "http://localhost:3000/images/product-1.png",
+            "category": "Sofas"
+        },
+        {
+            "id": 11,
+            "name": "Oak Desk",
+            "price": "$195.00",
+            "image": "http://localhost:3000/images/product-2.png",
+            "category": "Tables"
+        },
+        {
+            "id": 12,
+            "name": "Glass Coffee Table",
+            "price": "$140.00",
+            "image": "http://localhost:3000/images/product-3.png",
+            "category": "Tables"
+        },
+        {
+            "id": 13,
+            "name": "Dining Table",
+            "price": "$340.00",
+            "image": "http://localhost:3000/images/product-1.png",
+            "category": "Tables"
+        },
+        {
+            "id": 14,
+            "name": "Side Table",
+            "price": "$75.00",
+            "image": "http://localhost:3000/images/product-2.png",
+            "category": "Tables"
+        },
+        {
+            "id": 15,
+            "name": "Bedside Lamp",
+            "price": "$38.00",
+            "image": "http://localhost:3000/images/product-3.png",
+            "category": "Lighting"
+        },
+        {
+            "id": 16,
+            "name": "Floor Lamp",
+            "price": "$85.00",
+            "image": "http://localhost:3000/images/product-1.png",
+            "category": "Lighting"
+        },
+        {
+            "id": 17,
+            "name": "Pendant Light",
+            "price": "$120.00",
+            "image": "http://localhost:3000/images/product-2.png",
+            "category": "Lighting"
+        }
+    ]
+}
