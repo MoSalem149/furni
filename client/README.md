@@ -1,96 +1,134 @@
-# Furni
+# Furni — Client
 
-A modern interior design studio web application built with React and Vite. Furni showcases elegant furniture products, highlights key features, and provides a visually appealing, responsive user experience.
+The React frontend for the Furni furniture e-commerce app. Built with **Vite**, **React 19**, **React Router 7**, and **MUI**.
 
-## Features
+## Structure
 
-- **Hero Section:** Eye-catching introduction with branding and call-to-action.
-- **Featured Products:** Highlighted selection of furniture items.
-- **Why Choose Us:** Key selling points and service features.
-- **Image Grid:** Visual gallery of products and lifestyle images.
-- **Testimonials:** Customer feedback and reviews.
-- **Blog Preview:** Latest blog posts or news.
-- **Responsive Design:** Optimized for all devices.
-- **Modern UI:** Built with Material UI (MUI) and Emotion for styling.
-
-## Tech Stack
-
-- [React 19](https://react.dev/)
-- [Vite](https://vitejs.dev/)
-- [Material UI (MUI)](https://mui.com/)
-- [Emotion](https://emotion.sh/docs/introduction)
-- [ESLint](https://eslint.org/) for code linting
+```
+client/
+├── public/
+│   └── favicon.png
+├── src/
+│   ├── assets/          # Fonts, icons, images
+│   ├── components/      # Reusable UI components
+│   │   ├── Navbar.jsx
+│   │   ├── Footer.jsx
+│   │   ├── FeaturedProducts.jsx
+│   │   ├── CartItem.jsx
+│   │   ├── Hero.jsx
+│   │   ├── ImageGrid.jsx
+│   │   ├── BlogCard.jsx
+│   │   ├── BlogPreview.jsx
+│   │   ├── ContactForm.jsx
+│   │   ├── OurTeam.jsx
+│   │   ├── ProductCard.jsx
+│   │   ├── Testimonials.jsx
+│   │   └── WhyChooseUs.jsx
+│   ├── data/            # Static local data (nav links, team, posts…)
+│   ├── pages/           # Route-level components
+│   │   ├── Home.jsx
+│   │   ├── Shop.jsx
+│   │   ├── About.jsx
+│   │   ├── Services.jsx
+│   │   ├── Blog.jsx
+│   │   ├── Cart.jsx
+│   │   └── Contact.jsx
+│   ├── App.jsx          # Root component — routing + cart state
+│   └── main.jsx         # Entry point
+├── index.html
+├── vite.config.js
+└── package.json
+```
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js (v18 or higher recommended)
-- npm or yarn
+- Node.js ≥ 18
+- The **server** must be running on `http://localhost:3000` (see `../server/README.md`)
 
-### Installation
+### Install & Run
 
 ```bash
-git clone https://github.com/MoSalem149/furni.git
-cd furni
 npm install
-# or
-yarn install
-```
-
-### Development
-
-```bash
 npm run dev
-# or
-yarn dev
+# Opens at http://localhost:5173
 ```
 
-Visit [http://localhost:5173](http://localhost:5173) to view the app.
-
-### Build
+### Build for Production
 
 ```bash
 npm run build
-# or
-yarn build
+# Output in dist/
 ```
 
-### Preview Production Build
+## Environment Variables
+
+Create a `.env` file at the root of `client/` to override the API URL:
+
+```env
+VITE_API_URL=http://localhost:3000
+```
+
+Update the axios base URL in your fetch calls to use `import.meta.env.VITE_API_URL` so you can point to a deployed server.
+
+## Deployment on Deno Deploy
+
+Deno Deploy hosts **Deno** applications, not Node.js. To deploy a Vite-built React app there:
+
+### Step 1 — Build the static files
 
 ```bash
-npm run preview
-# or
-yarn preview
+npm run build
+# Produces: dist/
 ```
 
-### Linting
+### Step 2 — Create a Deno static-file server
+
+Create `serve.ts` in the `client/` folder:
+
+```ts
+import { serveDir } from "https://deno.land/std/http/file_server.ts";
+
+Deno.serve((req) => {
+  return serveDir(req, {
+    fsRoot: "dist",
+    urlRoot: "",
+    showDirListing: false,
+    enableCors: true,
+  });
+});
+```
+
+### Step 3 — Update the API URL
+
+Before building, set `VITE_API_URL` in `.env` to your deployed server URL (see `../server/README.md` for server deployment options):
+
+```env
+VITE_API_URL=https://your-furni-server.deno.dev
+```
+
+Then rebuild:
 
 ```bash
-npm run lint
+npm run build
 ```
 
-## Project Structure
+### Step 4 — Deploy to Deno Deploy
 
-```
-├── public/                # Static assets
-├── src/
-│   ├── assets/            # Images, icons, fonts
-│   ├── components/        # Reusable React components
-│   ├── pages/             # Page-level components
-│   ├── App.jsx            # Main app component
-│   ├── main.jsx           # Entry point
-│   └── ...
-├── index.html             # HTML template
-├── package.json           # Project metadata and scripts
-├── vite.config.js         # Vite configuration
-└── README.md              # Project documentation
-```
+1. Push the `client/` folder (including `dist/` and `serve.ts`) to GitHub.
+2. Go to [https://dash.deno.com](https://dash.deno.com) → **New Project**.
+3. Connect your GitHub repo and select the `client/` folder as the root.
+4. Set the entry point to **`serve.ts`**.
+5. Click **Deploy**.
 
-## License
+> **Tip:** Add `dist/` to a separate `.gitignore` entry only for local development if you want to commit the build output for Deno Deploy. Alternatively, use Deno Deploy's GitHub Actions integration to build and deploy automatically on every push.
 
-MWS
+### Alternative — Deploy to Netlify / Vercel (zero config)
 
----
+These platforms support Vite out of the box with no extra server file needed:
 
-> **Furni** — Modern Interior Design Studio Demo
+| Platform | Build command   | Publish directory |
+|----------|-----------------|-------------------|
+| Netlify  | `npm run build` | `dist`            |
+| Vercel   | `npm run build` | `dist`            |

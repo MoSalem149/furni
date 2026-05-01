@@ -1,13 +1,6 @@
 # Dependencies
 node_modules/
 
-# Build output
-dist/
-dist-ssr/
-
-# Vite cache
-.vite/
-
 # Logs
 *.log
 npm-debug.log*
@@ -15,11 +8,6 @@ npm-debug.log*
 # Environment
 .env
 .env.local
-.env.*.local
-
-# Editor
-.vscode/
-.idea/
 
 # OS
 .DS_Store
