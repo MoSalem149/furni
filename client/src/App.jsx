@@ -8,6 +8,8 @@ import Services from "./pages/Services";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import Cart from "./pages/Cart";
+import Admin from "./pages/Admin";
+import AddProduct from "./pages/AddProduct";
 import Footer from "./components/Footer";
 import "./App.css";
 
@@ -86,6 +88,8 @@ function App() {
           }
         />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/admin/add" element={<AddProduct />} />
       </Routes>
       <Footer />
     </>

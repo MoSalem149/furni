@@ -5,4 +5,5 @@ export const navLinks = [
   { label: "Services", path: "/services" },
   { label: "Blog", path: "/blog" },
   { label: "Contact us", path: "/contact" },
+  { label: "Admin", path: "/admin" },
 ];

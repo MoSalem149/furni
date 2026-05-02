@@ -27,7 +27,7 @@ export default function FeaturedProducts({ leftText = true, onAdd }) {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/products")
+      .get(`${import.meta.env.VITE_API_URL}/products`)
       .then((res) => {
         setProducts(res.data);
         const uniqueCategories = Array.from(
